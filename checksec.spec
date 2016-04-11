@@ -1,14 +1,14 @@
 Summary:	Tool to check system for binary-hardening
 Name:		checksec
-Version:	1.5
+Version:	1.7.4
 Release:	1
 License:	BSD
 Group:		Development/Tools
-Source0:	http://www.trapkit.de/tools/%{name}.sh
+Source0:	https://raw.githubusercontent.com/slimm609/checksec.sh/master/%{name}
 # Source0-md5:	075996be339ab16ad7b94d6de3ee07bd
-Source1:	http://www.trapkit.de/tools/%{name}_changes.txt
+Source1:	https://raw.githubusercontent.com/slimm609/checksec.sh/master/ChangeLog
 # Source1-md5:	03a45df6ac588603c6191dc0a4883531
-URL:		http://www.trapkit.de/tools/checksec.html
+URL:		https://github.com/slimm609/checksec.sh
 Requires:	binutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
