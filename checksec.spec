@@ -4,10 +4,8 @@ Version:	1.7.4
 Release:	1
 License:	BSD
 Group:		Development/Tools
-Source0:	https://raw.githubusercontent.com/slimm609/checksec.sh/master/%{name}
-# Source0-md5:	075996be339ab16ad7b94d6de3ee07bd
-Source1:	https://raw.githubusercontent.com/slimm609/checksec.sh/master/ChangeLog
-# Source1-md5:	03a45df6ac588603c6191dc0a4883531
+Source0:	https://github.com/slimm609/checksec.sh/archive/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	8e963bc27f58d14c9b3657600a5c298e
 URL:		https://github.com/slimm609/checksec.sh
 Requires:	binutils
 BuildArch:	noarch
@@ -31,17 +29,19 @@ checksec can check binary-files and running processes for hardening
 features.
 
 %prep
-cp -p %{SOURCE1} ChangeLog
+%setup -qn %{name}.sh-%{version}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man7}
 install -p %{SOURCE0} $RPM_BUILD_ROOT%{_bindir}/%{name}
+install -p extras/man/checksec.7* $RPM_BUILD_ROOT%{_mandir}/man7
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog
+%doc README.md LICENSE.txt ChangeLog
 %attr(755,root,root) %{_bindir}/%{name}
+%{_mandir}/man7/checksec.7*
