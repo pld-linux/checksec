@@ -1,7 +1,7 @@
 Summary:	Tool to check system for binary-hardening
 Name:		checksec
 Version:	1.7.4
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Tools
 Source0:	https://github.com/slimm609/checksec.sh/archive/%{version}/%{name}-%{version}.tar.gz
